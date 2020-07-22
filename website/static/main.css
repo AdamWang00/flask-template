@@ -1,0 +1,22 @@
+body {
+  background: #E2EAF0;
+  color: #333333;
+  margin-top: 20px;
+  font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+	font-family: 'Quicksand', sans-serif;
+}
+
+@media (min-width: 576px) {
+  body {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
