@@ -1,0 +1,11 @@
+$background-color: white;
+$font-stack: 'Lora', serif;
+$primary: black;
+
+
+[hidden] {display: none !important}
+[disabled] {pointer-events:none; opacity: 0.3}
+.horizontal {display: flex; flex-direction: row; justify-content: space-between}
+.vertical {display: flex; flex-direction: column}
+.center {justify-content: center; align-items: center}
+.flex {flex: 1}

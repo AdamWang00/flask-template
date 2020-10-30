@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% if posts.items %}
+		{% for post in posts.items %}
+			<article class="horizontal content-section shadow bg-lite">
+				<img class="rounded-circle article-img mt-4 ml-4 mr-2" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+				<div class="row flex">
+					<div class="col-lg-6">
+						<div class="flex pt-4 pb-4 pl-2 pr-2">
+							<p class="article-title font-weight-bold pt-2">{{ post.title }}</p>
+							<p class="article-author">{{ post.author.name }} | {{ post.date_posted.strftime('%m-%d-%Y') }}</p>
+							<div class="article-content">{{ post.content | markdown }}</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<img class="img-fluid pt-1 pb-1 pr-3" src="{{ url_for('static', filename='event_pics/' + post.image_file) }}">
+					</div>
+				</div>
+			</article>
+		{% endfor %}
+		<div class="text-center">
+			{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=3) %}
+				{% if page_num %}
+					{% if posts.page == page_num %}
+						<a class="btn btn-dark mb-4" href="{{ url_for('main.posts', page=page_num) }}">{{ page_num }}</a>
+					{% else %}
+						<a class="btn btn-outline-dark mb-4" href="{{ url_for('main.posts', page=page_num) }}">{{ page_num }}</a>
+					{% endif %}
+				{% else %}
+					. . .
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class="bg-lite shadow text-center p-4">
+			<p class="lead" style="margin-bottom: 0px;">No posts to show.</p>
+		</div>
+	{% endif %}
+{% endblock content %}
