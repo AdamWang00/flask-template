@@ -16,7 +16,7 @@ itsdangerous==0.24
 Jinja2==2.11.2
 Markdown==3.2.2
 MarkupSafe==1.1.1
-Pillow==7.1.2
+Pillow==8.1.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
